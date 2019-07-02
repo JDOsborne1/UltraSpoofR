@@ -25,3 +25,11 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 ## basic example code
 ```
+
+
+## TODOs
+
+Add in regex case insensitivity to type argument of the anticiapator dict --TODO
+Add in Metadata dictionary interaction and functionality: likely involving big update to megametadata --TODO
+introduce data spoofing elements to mimic data types with random data --TODO
+constrain the spoof generation to the features of the underlying data, min max, type combos etc --TODO
