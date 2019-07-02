@@ -1,16 +1,56 @@
 #### Anticipator Functions ####
 
+#' Anticipator Dictionary function
+#'
+#' Returns the anticipator generator function based on the data type given
+#'
+#' @param type A data type supported by the dict. one of c("CSV", "RDS)
+#'
+#' @return
+#' @export
+#'
+#' @examples
 ultraAnticipatorDict <- function(type){
   if(type == "CSV"){
     return(ultraCSV)
+  } else if(type == "RDS") {
+    return(ultraRDS)
   } else {
     return(NULL)
   }
 }
 
+#' CSV anticipator generator
+#'
+#' Generates an anticipator for the .csv file at the given path
+#'
+#' @param path
+#'
+#' @return
+#' @export
+#'
+#' @examples
 ultraCSV <- function(path){
   anticipator <- function(){
-    read.csv(path)
+    return(read.csv(path))
   }
   return(anticipator)
 }
+
+#' RDS anticipator generator
+#'
+#' Generates an anticipator for the .rds file at the given path
+#'
+#' @param path
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraRDS <- function(path){
+  anticipator <- function(){
+    return(readRDS(path))
+  }
+}
+
+

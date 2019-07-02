@@ -4,7 +4,7 @@
 \alias{ultraWrapper}
 \title{Wrapper}
 \usage{
-ultraWrapper(df)
+ultraWrapper(origin, type)
 }
 \arguments{
 \item{df}{}
