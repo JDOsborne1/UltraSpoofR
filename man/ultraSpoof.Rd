@@ -10,5 +10,5 @@ ultraSpoof(ultra_df)
 \item{ultra_df}{}
 }
 \description{
-Function to inject the spoofed data into the data structure
+Function to inject the spoofed data into the data structure, cloning the metadata of the spoofed object
 }

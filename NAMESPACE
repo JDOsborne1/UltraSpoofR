@@ -2,7 +2,7 @@
 
 export(ultraAnticipatorDict)
 export(ultraCSV)
-export(ultraMetaInjector)
+export(ultraMetaGenerator)
 export(ultraRDS)
 export(ultraSpoof)
 export(ultraWrapper)
