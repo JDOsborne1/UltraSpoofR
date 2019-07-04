@@ -44,8 +44,13 @@ uniqueness <- function(vect){
 #'
 #' @examples
 constCharLength <- function(vect){
-        number_of_lengths <- length(unique(nchar(vect)))
-        return(number_of_lengths == 1)
+  if(is.character(vect)){
+    number_of_lengths <- length(unique(nchar(vect)))
+    return(number_of_lengths == 1)
+  } else {
+    return(FALSE)
+  }
+
 }
 
 #' Date form checker (PLACEHOLDER)
