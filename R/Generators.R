@@ -64,16 +64,28 @@ ultraMetaGenerator <- function(ultra_df, dict = NULL){
           }
         }
         meta <- c(meta, meta_val)
+
       }
-      new_col <- data.frame(name = meta)
-      out_dict <- cbind(out_dict, new_col)
+
+      if(!type %in% c("Category", "Tag")){
+        Levels <- NA
+      } else {
+        Levels <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
+      }
+
+      meta <- data.frame(
+        "Column" = i
+        , "Description" = desc
+        , "Type" = type
+        , "Min" = Min
+        , "Max" = Max
+        , "Levels" = Levels
+      )
+
+
+      out_dict <- rbind(out_dict, meta)
     }
-    out_dict$placeholder <- NULL
-    colnames(out_dict) <- needed_colnames
 
-
-  } else {
-    out_dict <- dict
   }
   ultra_df[["meta"]] <- out_dict
   return(ultra_df)
