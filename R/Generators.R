@@ -36,12 +36,14 @@ ultraMetaGenerator <- function(ultra_df, dict = NULL){
     metas <- c("Description", "Type", "Min", "Max", "Levels")
     out_dict <- data.frame("placeholder" = metas,  row.names = metas)
     needed_colnames <- colnames(ultra_df$origin())
-    calc_values <- c("Min", "Max", "Levels")
+    calc_values <- c("Type", "Min", "Max", "Levels")
     for(i in needed_colnames){
       meta <- c()
       for(j in metas){
         if(!j %in% calc_values){
           meta_val <- readline(prompt = paste0("what is the ", j, " for ", i, ": " ))
+        } else if(j == "Type") {
+          meta_val <- guessDataType(ultra_df$origin()[, i])
         } else if(j == "Min"){
           if(meta[2] != "Value"){
             meta_val <- NA
