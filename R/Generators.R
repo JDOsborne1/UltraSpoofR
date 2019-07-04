@@ -14,7 +14,7 @@ ultraWrapper <- function(origin, type){
   wrappingFunc <- ultraAnticipatorDict(type)
   ultra_df <- list(
     origin = wrappingFunc(origin)
-    , spoof = NULL
+    #, spoof = NULL
     #, meta = NULL
     )
 }
@@ -100,5 +100,6 @@ ultraMetaGenerator <- function(ultra_df, dict = NULL){
 #'
 #' @examples
 ultraSpoof <- function(ultra_df){
-
+  ultra_df[["spoof"]] <- ultraRandoDataset(ultra_df)
+  return(ultra_df)
 }
