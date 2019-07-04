@@ -33,50 +33,60 @@ ultraWrapper <- function(origin, type){
 ultraMetaGenerator <- function(ultra_df, dict = NULL){
   if(is.null(dict)){
     # --TODO move into seperate functionality
-    metas <- c("Description", "Type", "Min", "Max", "Levels")
-    out_dict <- data.frame("placeholder" = metas,  row.names = metas)
-    needed_colnames <- colnames(ultra_df$origin())
     calc_values <- c("Min", "Max", "Levels")
-    for(i in needed_colnames){
-      meta <- c()
-      for(j in metas){
-        if(!j %in% calc_values){
-          meta_val <- readline(prompt = paste0("what is the ", j, " for ", i, ": " ))
-        } else if(j == "Min"){
-          if(meta[2] != "Value"){
-            meta_val <- NA
-          } else {
-            meta_val <- min(ultra_df$origin()[, i])
-          }
-        } else if(j == "Max"){
-          if(meta[2] != "Value"){
-            meta_val <- NA
-          } else {
-            meta_val <- max(ultra_df$origin()[, i])
-          }
-        } else if(j == "Levels"){
-          if(!meta[2] %in% c("Category", "Tag")){
-            meta_val <- NA
-          } else {
-            meta_val <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
-          }
-        }
-        meta <- c(meta, meta_val)
+    out_dict <- head(
+      data.frame(
+        "Column" = NA
+        , "Description" = NA
+        , "Type" = NA
+        , "Min" = NA
+        , "Max" = NA
+        , "Levels" = NA
+      )
+      , 0
+    )
+
+    needed_rownames <- colnames(ultra_df$origin())
+    for(i in needed_rownames) {
+      desc <- readline(prompt = paste0("what is the Description for ", i, ": " ))
+
+      type <- guessDataType(ultra_df$origin()[, i])
+
+      if(type != "Value"){
+        Max <- NA
+      } else {
+        Max <- max(ultra_df$origin()[, i])
       }
-      new_col <- data.frame(name = meta)
-      out_dict <- cbind(out_dict, new_col)
+
+      if(type != "Value"){
+        Min <- NA
+      } else {
+        Min <- min(ultra_df$origin()[, i])
+      }
+
+      if(!type %in% c("Category", "Tag")){
+        Levels <- NA
+      } else {
+        Levels <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
+      }
+
+      meta <- data.frame(
+        "Column" = i
+        , "Description" = desc
+        , "Type" = type
+        , "Min" = Min
+        , "Max" = Max
+        , "Levels" = Levels
+      )
+
+
+      out_dict <- rbind(out_dict, meta)
     }
-    out_dict$placeholder <- NULL
-    colnames(out_dict) <- needed_colnames
 
-
-  } else {
-    out_dict <- dict
   }
   ultra_df[["meta"]] <- out_dict
   return(ultra_df)
 }
-
 
 
 #' Spoofer
