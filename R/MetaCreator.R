@@ -154,8 +154,9 @@ ultraMetaGenerator <- function(ultra_df){
       if(!type %in% c("Category", "Tag")){
         Levels <- NA
       } else {
-        Levels <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
+        Levels <- list(unique(ultra_df$origin()[, i]))
       }
+
 
       meta <- tibble::tibble(
         "Column" = i
