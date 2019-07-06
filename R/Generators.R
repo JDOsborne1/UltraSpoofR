@@ -35,7 +35,7 @@ ultraMetaGenerator <- function(ultra_df, dict = NULL){
     # --TODO move into seperate functionality
     calc_values <- c("Min", "Max", "Levels")
     out_dict <- head(
-      data.frame(
+      tibble::tibble(
         "Column" = NA
         , "Description" = NA
         , "Type" = NA
@@ -70,7 +70,7 @@ ultraMetaGenerator <- function(ultra_df, dict = NULL){
         Levels <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
       }
 
-      meta <- data.frame(
+      meta <- tibble::tibble(
         "Column" = i
         , "Description" = desc
         , "Type" = type
