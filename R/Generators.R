@@ -30,61 +30,12 @@ ultraWrapper <- function(origin, type){
 #' @export
 #'
 #' @examples
-ultraMetaGenerator <- function(ultra_df, dict = NULL){
+ultraMeta <- function(ultra_df, dict = NULL){
   if(is.null(dict)){
-    # --TODO move into seperate functionality
-    calc_values <- c("Min", "Max", "Levels")
-    out_dict <- head(
-      tibble::tibble(
-        "Column" = NA
-        , "Description" = NA
-        , "Type" = NA
-        , "Min" = NA
-        , "Max" = NA
-        , "Levels" = NA
-      )
-      , 0
-    )
-
-    needed_rownames <- colnames(ultra_df$origin())
-    for(i in needed_rownames) {
-      desc <- readline(prompt = paste0("what is the Description for ", i, ": " ))
-
-      type <- guessDataType(ultra_df$origin()[, i])
-
-      if(type != "Value"){
-        Max <- NA
-      } else {
-        Max <- max(ultra_df$origin()[, i])
-      }
-
-      if(type != "Value"){
-        Min <- NA
-      } else {
-        Min <- min(ultra_df$origin()[, i])
-      }
-
-      if(!type %in% c("Category", "Tag")){
-        Levels <- NA
-      } else {
-        Levels <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
-      }
-
-      meta <- tibble::tibble(
-        "Column" = i
-        , "Description" = desc
-        , "Type" = type
-        , "Min" = Min
-        , "Max" = Max
-        , "Levels" = Levels
-      )
-
-
-      out_dict <- rbind(out_dict, meta)
-    }
-
+  ultra_df[["meta"]] <- ultraMetaGenerator(ultra_df)
+  } else {
+    ultra_df[["meta"]] <- dict
   }
-  ultra_df[["meta"]] <- out_dict
   return(ultra_df)
 }
 

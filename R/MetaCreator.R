@@ -106,3 +106,68 @@ guessDataType <- function(vect){
         )
         return(Type)
 }
+
+#' Creating a metadata structure for the ultra_df
+#'
+#' Generates the metadata table for future use and underlying the spoofing mechanism
+#'
+#' @param ultra_df
+#' @param dict
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraMetaGenerator <- function(ultra_df){
+    # --TODO move into seperate functionality
+    calc_values <- c("Min", "Max", "Levels")
+    out_dict <- head(
+      tibble::tibble(
+        "Column" = NA
+        , "Description" = NA
+        , "Type" = NA
+        , "Min" = NA
+        , "Max" = NA
+        , "Levels" = NA
+      )
+      , 0
+    )
+
+    needed_rownames <- colnames(ultra_df$origin())
+    for(i in needed_rownames) {
+      desc <- readline(prompt = paste0("what is the Description for ", i, ": " ))
+
+      type <- guessDataType(ultra_df$origin()[, i])
+
+      if(type != "Value"){
+        Max <- NA
+      } else {
+        Max <- max(ultra_df$origin()[, i])
+      }
+
+      if(type != "Value"){
+        Min <- NA
+      } else {
+        Min <- min(ultra_df$origin()[, i])
+      }
+
+      if(!type %in% c("Category", "Tag")){
+        Levels <- NA
+      } else {
+        Levels <- paste(unique(ultra_df$origin()[, i]), collapse = "|")
+      }
+
+      meta <- tibble::tibble(
+        "Column" = i
+        , "Description" = desc
+        , "Type" = type
+        , "Min" = Min
+        , "Max" = Max
+        , "Levels" = Levels
+      )
+
+
+      out_dict <- rbind(out_dict, meta)
+    }
+    return(out_dict)
+  }
