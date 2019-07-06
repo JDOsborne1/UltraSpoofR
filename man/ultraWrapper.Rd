@@ -7,7 +7,7 @@
 ultraWrapper(origin, type)
 }
 \arguments{
-\item{df}{}
+\item{type}{}
 }
 \description{
 The main function to wrap up dataframes into the ultrawrapper format

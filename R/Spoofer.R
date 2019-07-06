@@ -1,7 +1,7 @@
 #' Random column generator
 #'
-#' @param Column
 #' @param ultra_df
+#' @param Column_in_question
 #'
 #' @return
 #' @export
@@ -43,5 +43,6 @@ ultraRandoDataset <- function(ultra_df){
     cols[i] <- col
   }
   df <- do.call(cbind, cols)
+  df <- tibble::as.tibble(df)
   return(df)
 }
