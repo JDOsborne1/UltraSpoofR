@@ -8,8 +8,8 @@
 #'
 #' @examples
 ultraRandoColumn <- function(ultra_df, Column_in_question){
-  minval <- ultra_df$meta[ultra_df$meta$Column == Column_in_question,"Min"]
-  maxval <- ultra_df$meta[ultra_df$meta$Column == Column_in_question,"Max"]
+  minval <- ultra_df$meta[ultra_df$meta[, "Column"] == Column_in_question,]$Min
+  maxval <- ultra_df$meta[ultra_df$meta[, "Column"] == Column_in_question,]$Max
   rvals <- runif(100, minval, maxval)
   colnames(rvals) <- Column
   rvals <- tibble::tibble( rvals )
