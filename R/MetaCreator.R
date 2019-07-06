@@ -112,7 +112,6 @@ guessDataType <- function(vect){
 #' Generates the metadata table for future use and underlying the spoofing mechanism
 #'
 #' @param ultra_df
-#' @param dict
 #'
 #' @return
 #' @export

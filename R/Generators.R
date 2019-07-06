@@ -4,7 +4,8 @@
 #'
 #' The main function to wrap up dataframes into the ultrawrapper format
 #'
-#' @param df
+#' @param origin
+#' @param type
 #'
 #' @return
 #' @export
