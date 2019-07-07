@@ -136,7 +136,7 @@ ultraMetaGenerator <- function(ultra_df){
     for(i in needed_rownames) {
       desc <- readline(prompt = paste0("what is the Description for ", i, ": " ))
 
-      type <- guessDataType(ultra_df$origin()[, i])
+      type <- guessDataType(ultra_df$origin()[[i]])
 
       if(type != "Value"){
         Max <- NA
