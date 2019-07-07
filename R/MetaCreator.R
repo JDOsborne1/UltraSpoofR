@@ -118,56 +118,78 @@ guessDataType <- function(vect){
 #'
 #' @examples
 ultraMetaGenerator <- function(ultra_df){
-    # --TODO move into seperate functionality
-    calc_values <- c("Min", "Max", "Levels")
-    out_dict <- head(
-      tibble::tibble(
-        "Column" = NA
-        , "Description" = NA
-        , "Type" = NA
-        , "Min" = NA
-        , "Max" = NA
-        , "Levels" = NA
-      )
-      , 0
+  dat <- ultra_df$origin()
+  calc_values <- c("Min", "Max", "Levels")
+  out_dict <- head(
+    tibble::tibble(
+      "Column" = NA
+      , "Description" = NA
+      , "Type" = NA
+      , "Min" = NA
+      , "Max" = NA
+      , "Levels" = NA
     )
+    , 0
+  )
 
-    needed_rownames <- colnames(ultra_df$origin())
-    for(i in needed_rownames) {
-      desc <- readline(prompt = paste0("what is the Description for ", i, ": " ))
-
-      type <- guessDataType(ultra_df$origin()[[i]])
-
-      if(type != "Value"){
-        Max <- NA
-      } else {
-        Max <- max(ultra_df$origin()[, i])
-      }
-
-      if(type != "Value"){
-        Min <- NA
-      } else {
-        Min <- min(ultra_df$origin()[, i])
-      }
-
-      if(!type %in% c("Category", "Tag")){
-        Levels <- NA
-      } else {
-        Levels <- list(unique(ultra_df$origin()[, i]))
-      }
-
-
-      meta <- tibble::tibble(
-        "Column" = i
-        , "Description" = desc
-        , "Type" = type
-        , "Min" = Min
-        , "Max" = Max
-        , "Levels" = Levels
-      )
-
-
-      out_dict <- rbind(out_dict, meta)
-    }
-    return(out_dict)
+  needed_rownames <- colnames(ultra_df$origin())
+  for(i in needed_rownames) {
+    col <- dat[[i]]
+    meta <- ultraMetaCalc(col, i)
+    out_dict <- rbind(out_dict, meta)
   }
+  return(out_dict)
+}
+
+
+
+#' Columnwise Metadata query
+#'
+#' @param dataset
+#' @param colname_in_question
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraMetaCalc <- function(dataset, colname_in_question){
+  desc <- readline(prompt = paste0("what is the Description for ", colname_in_question, ": " ))
+  desc <- ifelse(desc == "", colname_in_question, desc)
+
+  type <- guessDataType(dataset)
+  user_type <- readline(prompt = paste0("Ultra has guessed that ", colname_in_question, " is a ", type, " ENTER to agree: " ))
+  type <- ifelse(user_type == "", type, user_type)
+
+
+  if(type != "Value"){
+    Max <- NA
+  } else {
+    Max <- max(dataset)
+  }
+
+  if(type != "Value"){
+    Min <- NA
+  } else {
+    Min <- min(dataset)
+  }
+
+  if(!type %in% c("Category", "Tag")){
+    Levels <- NA
+  } else {
+    Levels <- list(unique(dataset))
+  }
+
+
+  meta <- tibble::tibble(
+    "Column" = colname_in_question
+    , "Description" = desc
+    , "Type" = type
+    , "Min" = Min
+    , "Max" = Max
+    , "Levels" = Levels
+  )
+
+  return(meta)
+}
+
+
