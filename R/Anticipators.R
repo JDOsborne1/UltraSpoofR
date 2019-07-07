@@ -15,6 +15,8 @@ ultraAnticipatorDict <- function(type){
     return(ultraCSV)
   } else if(type == "RDS") {
     return(ultraRDS)
+  } else if(type == "ExcelRemote") {
+    return(ultraExcelRemote)
   } else {
     return(NULL)
   }
@@ -50,6 +52,23 @@ ultraCSV <- function(path){
 ultraRDS <- function(path){
   anticipator <- function(){
     return(readRDS(path))
+  }
+}
+
+#' Remote Excel anticipator generator
+#'
+#' Generates an anticipator for the .rds file at the given path
+#'
+#' @param path
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraExcelRemote <- function(path){
+  anticipator <- function(){
+    httr::GET(path, httr::write_disk(tf <- tempfile(fileext = ".xls")))
+    return(readxl::read_excel(tf))
   }
 }
 
