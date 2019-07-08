@@ -11,13 +11,16 @@
 #' @export
 #'
 #' @examples
-ultraWrapper <- function(origin, type){
+ultraWrapper <- function(origin_location, type){
   wrappingFunc <- ultraAnticipatorDict(type)
+  origin_func = wrappingFunc(origin_location)
   ultra_df <- list(
-    origin = wrappingFunc(origin)
+    origin = origin_func
+    , stages = list("source" = origin_func)
     #, spoof = NULL
     #, meta = NULL
     )
+
 }
 
 #' Injecting a metadata structure into the ultra_df
