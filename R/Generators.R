@@ -36,7 +36,7 @@ ultraWrapper <- function(origin_location, type){
 #' @examples
 ultraMeta <- function(ultra_df, dict = NULL){
   if(is.null(dict)){
-  ultra_df[["meta"]] <- ultraMetaGenerator(ultra_df)
+  ultra_df[["meta"]] <- ultraMetaGenerator(ultra_df$origin())
   } else {
     ultra_df[["meta"]] <- dict
   }

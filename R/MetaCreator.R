@@ -117,8 +117,8 @@ guessDataType <- function(vect){
 #' @export
 #'
 #' @examples
-ultraMetaGenerator <- function(ultra_df){
-  dat <- ultra_df$origin()
+ultraMetaGenerator <- function(dat){
+
   calc_values <- c("Min", "Max", "Levels")
   out_dict <- head(
     tibble::tibble(
@@ -132,7 +132,7 @@ ultraMetaGenerator <- function(ultra_df){
     , 0
   )
 
-  needed_rownames <- colnames(ultra_df$origin())
+  needed_rownames <- colnames(dat)
   for(i in needed_rownames) {
     col <- dat[[i]]
     meta <- ultraMetaCalc(col, i)
