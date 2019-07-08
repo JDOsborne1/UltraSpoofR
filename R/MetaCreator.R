@@ -192,6 +192,17 @@ ultraMetaCalc <- function(dataset, colname_in_question){
   return(meta)
 }
 
+#' Metadata corrector
+#'
+#' @description Function to interactively update the contents of the metadata tibble by columnname
+#'
+#' @param ultra_df
+#' @param cols_to_correct
+#'
+#' @return
+#' @export
+#'
+#' @examples
 ultraMetaCorrector <- function(ultra_df, cols_to_correct){
   for(i in cols_to_correct){
     element <- ultra_df$meta[ultra_df$meta$Column == i, ]
