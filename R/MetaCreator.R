@@ -192,4 +192,13 @@ ultraMetaCalc <- function(dataset, colname_in_question){
   return(meta)
 }
 
-
+ultraMetaCorrector <- function(ultra_df, cols_to_correct){
+  for(i in cols_to_correct){
+    element <- ultra_df$meta[ultra_df$meta$Column == i, ]
+    for(j in colnames(ultra_df$meta[ultra_df$meta$Column == i, ])){
+      input <- readline(prompt = paste0("what is the Value of ", j, " for ", i, ": ENTER to leave the same" ))
+      ultra_df$meta[ultra_df$meta$Column == i, ][[j]] <-  ifelse(input == "", ultra_df$meta[ultra_df$meta$Column == i, ][[j]], input)
+    }
+  }
+  return(ultra_df)
+}
