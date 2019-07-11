@@ -1,6 +1,6 @@
 Package: UltraSpoofR
 Title: Produces Cover Objects to Mask the Orgin Data
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: person("Joseph", "Developer", role = c("aut", "cre"),
                      email = "joe@osborne.uk.com")
 Description: Uses a cover object to make the underlying data less neccessary and less often loaded. By making it possible to build analyses on the spoofed data and the added data dictionary it will assist in privacy-by-design workflows.

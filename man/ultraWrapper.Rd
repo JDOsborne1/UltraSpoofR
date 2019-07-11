@@ -4,7 +4,7 @@
 \alias{ultraWrapper}
 \title{Wrapper}
 \usage{
-ultraWrapper(origin, type)
+ultraWrapper(origin_location, type)
 }
 \arguments{
 \item{type}{}

@@ -4,7 +4,7 @@
 \alias{ultraMetaGenerator}
 \title{Creating a metadata structure for the ultra_df}
 \usage{
-ultraMetaGenerator(ultra_df)
+ultraMetaGenerator(dat)
 }
 \arguments{
 \item{ultra_df}{}
