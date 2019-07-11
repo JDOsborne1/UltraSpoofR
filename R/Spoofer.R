@@ -16,7 +16,7 @@ ultraRandoColumn <- function(ultra_df, Column_in_question){
   rvals <- runif(100, minval, maxval)
   } else if (data_type == "Category") {
   levels <- as.character(
-    iris$meta[iris$meta$Column == Column_in_question, ]$Levels[[1]]
+    ultra_df$meta[ultra_df$meta$Column == Column_in_question, ]$Levels[[1]]
   )
   rvals <- sample(levels, 100, replace = TRUE)
   } else {
