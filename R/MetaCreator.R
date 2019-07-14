@@ -164,13 +164,13 @@ ultraMetaCalc <- function(dataset, colname_in_question){
   if(type != "Value"){
     Max <- NA
   } else {
-    Max <- max(dataset)
+    Max <- max(dataset, na.rm = TRUE)
   }
 
   if(type != "Value"){
     Min <- NA
   } else {
-    Min <- min(dataset)
+    Min <- min(dataset, na.rm = TRUE)
   }
 
   if(!type %in% c("Category", "Tag")){
