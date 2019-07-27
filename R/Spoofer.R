@@ -14,7 +14,7 @@ ultraRandoColumn <- function(ultra_df, Column_in_question){
   minval <- ultra_df$meta[ultra_df$meta[, "Column"] == Column_in_question,]$Min
   maxval <- ultra_df$meta[ultra_df$meta[, "Column"] == Column_in_question,]$Max
   rvals <- runif(100, minval, maxval)
-  } else if (data_type == "Category") {
+  } else if (data_type %in% c("Category", "Tag")) {
   levels <- as.character(
     ultra_df$meta[ultra_df$meta$Column == Column_in_question, ]$Levels[[1]]
   )
