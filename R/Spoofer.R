@@ -62,3 +62,16 @@ ultraSpooferNew <- function(ultra_df){
 
   return(spoofed_data)
 }
+
+#' Constrained Random generator
+#'
+#' @param vect
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraAggRandom <- function(vect){
+  out <- runif(1, min(vect), max(vect))
+  return(out)
+}
