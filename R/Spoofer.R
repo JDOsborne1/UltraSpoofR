@@ -46,3 +46,19 @@ ultraRandoDataset <- function(ultra_df){
   df <- tibble::as.tibble(df)
   return(df)
 }
+
+#' New spoofing functio
+#'
+#' @description Function which uses the new devised method to spoof without introducing illegal combinations of values.
+#'
+#' @param ultra_df
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraSpooferNew <- function(ultra_df){
+  spoofed_data <- NULL
+
+  return(spoofed_data)
+}
