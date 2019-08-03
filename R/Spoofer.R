@@ -60,9 +60,23 @@ ultraRandoDataset <- function(ultra_df){
 #'
 #' @examples
 ultraSpooferNew <- function(ultra_df){
+  # Identifies Nominal Columns
+
+  # Groups on Nominal columns
+
+  # Uses random agg to summarise in the random aggregation
+
+  # the "by" function is looking like a good shout
+
+  # Length checks and possible repeats
+
   spoofed_data <- NULL
 
   return(spoofed_data)
+}
+
+ultraNominalCheck <- function(ultra_df){
+  return(NULL)
 }
 
 #' Constrained Random generator
