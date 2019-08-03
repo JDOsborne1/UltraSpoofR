@@ -87,7 +87,7 @@ ultraAggRandom <- function(vect){
 #'
 #' @examples
 ultraNameSpoof <- function(){
-  first = sample(purrr::flatten(test), 1)[[1]]
+  first = sample(purrr::flatten(stringr::str_split(rownames(mtcars), pattern = "\\s")), 1)[[1]]
   last = sample(state.name, 1)
   return(paste0(first, " ", last))
 }
