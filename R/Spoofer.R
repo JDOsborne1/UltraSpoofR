@@ -19,6 +19,8 @@ ultraRandoColumn <- function(ultra_df, Column_in_question){
     ultra_df$meta[ultra_df$meta$Column == Column_in_question, ]$Levels[[1]]
   )
   rvals <- sample(levels, 100, replace = TRUE)
+  } else if (data_type %in% c("PII")) {
+    rvals <- replicate(100, ultraNameSpoof())
   } else {
     rvals <- rep(NA, 100)
   }
@@ -74,4 +76,18 @@ ultraSpooferNew <- function(ultra_df){
 ultraAggRandom <- function(vect){
   out <- runif(1, min(vect), max(vect))
   return(out)
+}
+
+#' Random Name generator
+#'
+#' @description uses the embedded mtcars and state.name datasets to generate passable, if often amusing fake names in PII slots
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraNameSpoof <- function(){
+  first = sample(purrr::flatten(test), 1)[[1]]
+  last = sample(state.name, 1)
+  return(paste0(first, " ", last))
 }
