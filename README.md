@@ -29,8 +29,10 @@ involving big update to megametadata~~ –TODO
 ~~introduce data spoofing elements to mimic data types with random
 data~~ –TODO
 
-constrain the spoof generation to the features of the underlying data,
-min max, type combos etc –TODO
+\~\~constrain the spoof generation to the features of the underlying
+data, min max, type combos etc \~\~–TODO
+
+Add further tests to the output of the spoofing functionality –TODO
 
 New Spoofing system
 -------------------
@@ -55,11 +57,12 @@ there is no more combinations with sufficient count to be included
 
 Functions needed:
 
--   Qualifier function which can identify the ordinal columns in a way
-    which would be accepted by vars in summarise at/ alternatively a
-    boolean function which can be accepted by summarise if.
+-   \~\~Qualifier function which can identify the ordinal columns in a
+    way which would be accepted by vars in summarise at/ alternatively a
+    boolean function which can be accepted by summarise if. \~\~
 
--   Random generator function which can act on a grouped column.
+-   \~\~Random generator function which can act on a grouped column.
+    \~\~
 
 -   wrapper function which applies the above process and exploits the
     above function to create a spoofed dataset
