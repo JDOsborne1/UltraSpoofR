@@ -61,16 +61,18 @@ ultraRandoDataset <- function(ultra_df){
 #' @examples
 ultraSpooferNew <- function(ultra_df){
   # Identifies Nominal Columns
-
+  nominal_cols <- ultraNominalCheck(ultra_df)
+  continuous_cols <- ultraContinuousCheck(ultra_df)
   # Groups on Nominal columns
+  grouped_origin <- group_by_at(ultra_df$origin(), vars(one_of(nominal_cols)))
+
 
   # Uses random agg to summarise in the random aggregation
-
-  # the "by" function is looking like a good shout or  aggregate()
+  spoofed_data <- summarise_at(grouped_origin, vars(one_of(continuous_cols)) , ultraAggRandom)
 
   # Length checks and possible repeats
 
-  spoofed_data <- NULL
+
 
   return(spoofed_data)
 }
