@@ -75,8 +75,30 @@ ultraSpooferNew <- function(ultra_df){
   return(spoofed_data)
 }
 
+#' Nominal Column Checker
+#'
+#' @param ultra_df
+#'
+#' @return
+#' @export
+#'
+#' @examples
 ultraNominalCheck <- function(ultra_df){
-  return(NULL)
+  out <- ultra_df$meta[ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
+  return(out)
+}
+
+#' Continuous Column Checker
+#'
+#' @param ultra_df
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraContinuousCheck <- function(ultra_df){
+  out <- ultra_df$meta[!ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
+  return(out)
 }
 
 #' Constrained Random generator
