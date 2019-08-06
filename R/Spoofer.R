@@ -87,7 +87,13 @@ ultraSpooferNew <- function(ultra_df){
   # calculates the number of repeats it will require to reach 100
   required_runs <- ceiling(100 / nrow(spoofed_data))
 
+  #initialise the stack
+  stacked_spoofed_data <- spoofed_data
 
+  # calls the spoofer that many times and binds them
+  for( j in seq_len(required_runs - 1)){
+    stacked_spoofed_data <- rbind(stacked_spoofed_data, ultraSingleSpoofRun(grouped_origin, continuous_cols))
+  }
 
   return(spoofed_data)
 }
