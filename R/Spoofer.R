@@ -95,7 +95,15 @@ ultraSpooferNew <- function(ultra_df){
     stacked_spoofed_data <- rbind(stacked_spoofed_data, ultraSingleSpoofRun(grouped_origin, continuous_cols))
   }
 
-  return(spoofed_data)
+  # if above 100 rows use sampling to produce a dataset of 100 rows
+  if(nrow(stacked_spoofed_data) > 100){
+    final_spoofed_data <- dplyr::sample_n(stacked_spoofed_data, 100)
+  } else {
+    final_spoofed_data <- stacked_spoofed_data
+  }
+
+
+  return(final_spoofed_data)
 }
 
 #' Nominal Column Checker
