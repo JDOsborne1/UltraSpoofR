@@ -17,3 +17,29 @@ ultraCallStagedOutput <- function(stages){
   }
   return(output)
 }
+
+#' Maximum value getter
+#'
+#' @param ultra_df
+#' @param column
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraGetMax <- function(ultra_df, column){
+  return(ultra_df$meta[ultra_df$meta$Column == column, ]$Max)
+}
+
+#' Maximum value getter
+#'
+#' @param ultra_df
+#' @param column
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraGetMin <- function(ultra_df, column){
+  return(ultra_df$meta[ultra_df$meta$Column == column, ]$Min)
+}
