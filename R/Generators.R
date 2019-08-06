@@ -55,6 +55,7 @@ ultraMeta <- function(ultra_df, dict = NULL){
 #'
 #' @examples
 ultraSpoof <- function(ultra_df){
-  ultra_df[["spoof"]] <- ultraRandoDataset(ultra_df)
+  # ultra_df[["spoof"]] <- ultraRandoDataset(ultra_df)
+  ultra_df[["spoof"]] <- ultraSpooferNew(ultra_df)
   return(ultra_df)
 }
