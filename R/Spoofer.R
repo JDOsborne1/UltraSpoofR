@@ -49,6 +49,20 @@ ultraRandoDataset <- function(ultra_df){
   return(df)
 }
 
+#' Single Spoof run on grouped data
+#'
+#' @param grouped_origin
+#' @param continuous_cols
+#'
+#' @return
+#' @export
+#'
+#' @examples
+ultraSingleSpoofRun <- function(grouped_origin, continuous_cols){
+  dplyr::summarise_at(grouped_origin, dplyr::vars(dplyr::one_of(continuous_cols)) , ultraAggRandom)
+}
+
+
 #' New spoofing functio
 #'
 #' @description Function which uses the new devised method to spoof without introducing illegal combinations of values.
@@ -68,7 +82,7 @@ ultraSpooferNew <- function(ultra_df){
 
 
   # Uses random agg to summarise in the random aggregation
-  spoofed_data <- summarise_at(grouped_origin, vars(one_of(continuous_cols)) , ultraAggRandom)
+  spoofed_data <- ultraSingleSpoofRun(grouped_origin, continuous_cols)
 
   # Length checks and possible repeats
 
