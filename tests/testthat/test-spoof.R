@@ -11,9 +11,9 @@ test_that("Spoofing has correct ranges", {
 
 test_that("Spoofing has the correct Type", {
   test_data <- ultraSpoof(irisUltra)$spoof
-  expect_type(test_data[["Species"]] , class(irisUltra$origin()[["Species"]]))
-  expect_type(test_data[["Sepal.Length"]] , class(irisUltra$origin()[["Sepal.Length"]]))
-  expect_type(test_data[["Petal.Length"]] , class(irisUltra$origin()[["Petal.Length"]]))
-  expect_type(test_data[["Sepal.Width"]] , class(irisUltra$origin()[["Sepal.Width"]]))
-  expect_type(test_data[["Petal.Width"]] , class(irisUltra$origin()[["Petal.Width"]]))
+  expect_equal(class(test_data[["Species"]]) , "factor")
+  expect_equal(class(test_data[["Sepal.Length"]]) , "numeric")
+  expect_equal(class(test_data[["Petal.Length"]]) , "numeric")
+  expect_equal(class(test_data[["Sepal.Width"]]) , "numeric")
+  expect_equal(class(test_data[["Petal.Width"]]) , "numeric")
 })
