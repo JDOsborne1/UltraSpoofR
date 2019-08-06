@@ -78,7 +78,7 @@ ultraSpooferNew <- function(ultra_df){
   nominal_cols <- ultraNominalCheck(ultra_df)
   continuous_cols <- ultraContinuousCheck(ultra_df)
   # Groups on Nominal columns
-  grouped_origin <- group_by_at(ultra_df$origin(), vars(one_of(nominal_cols)))
+  grouped_origin <- dplyr::group_by_at(ultra_df$origin(), dplyr::vars(dplyr::one_of(nominal_cols)))
 
 
   # Uses random agg to summarise in the random aggregation
