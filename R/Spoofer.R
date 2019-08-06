@@ -84,7 +84,8 @@ ultraSpooferNew <- function(ultra_df){
   # Uses random agg to summarise in the random aggregation
   spoofed_data <- ultraSingleSpoofRun(grouped_origin, continuous_cols)
 
-  # Length checks and possible repeats
+  # calculates the number of repeats it will require to reach 100
+  required_runs <- ceiling(100 / nrow(spoofed_data))
 
 
 
