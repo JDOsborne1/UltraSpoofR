@@ -7,7 +7,12 @@
 ultraMetaCalc(dataset, colname_in_question)
 }
 \arguments{
-\item{colname_in_question}{}
+\item{dataset}{the origin dataset}
+
+\item{colname_in_question}{The columname to use in the function}
+}
+\value{
+
 }
 \description{
 Columnwise Metadata query

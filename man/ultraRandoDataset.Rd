@@ -7,7 +7,10 @@
 ultraRandoDataset(ultra_df)
 }
 \arguments{
-\item{ultra_df}{}
+\item{ultra_df}{the ultra df}
+}
+\value{
+
 }
 \description{
 random dataset generator

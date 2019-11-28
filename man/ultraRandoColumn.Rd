@@ -7,7 +7,12 @@
 ultraRandoColumn(ultra_df, Column_in_question)
 }
 \arguments{
-\item{Column_in_question}{}
+\item{ultra_df}{The ultra df}
+
+\item{Column_in_question}{The column for the function}
+}
+\value{
+
 }
 \description{
 Random column generator

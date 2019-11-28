@@ -7,7 +7,12 @@
 ultraMetaCorrector(ultra_df, cols_to_correct)
 }
 \arguments{
-\item{cols_to_correct}{}
+\item{ultra_df}{The ultra df}
+
+\item{cols_to_correct}{the columns to correct in the metadict}
+}
+\value{
+
 }
 \description{
 Function to interactively update the contents of the metadata tibble by columnname

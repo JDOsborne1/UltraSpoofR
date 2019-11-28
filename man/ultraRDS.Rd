@@ -7,7 +7,10 @@
 ultraRDS(path)
 }
 \arguments{
-\item{path}{}
+\item{path}{The path of the RDS file}
+}
+\value{
+
 }
 \description{
 Generates an anticipator for the .rds file at the given path

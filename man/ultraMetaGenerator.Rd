@@ -7,7 +7,10 @@
 ultraMetaGenerator(dat)
 }
 \arguments{
-\item{ultra_df}{}
+\item{ultra_df}{The ultra df}
+}
+\value{
+
 }
 \description{
 Generates the metadata table for future use and underlying the spoofing mechanism

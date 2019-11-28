@@ -7,7 +7,10 @@
 ultraContinuousCheck(ultra_df)
 }
 \arguments{
-\item{ultra_df}{}
+\item{ultra_df}{the Ultra df}
+}
+\value{
+
 }
 \description{
 Continuous Column Checker

@@ -7,7 +7,12 @@
 ultraSingleSpoofRun(grouped_origin, continuous_cols)
 }
 \arguments{
-\item{continuous_cols}{}
+\item{grouped_origin}{the origin data that has been grouped already}
+
+\item{continuous_cols}{the continuous columns}
+}
+\value{
+
 }
 \description{
 Single Spoof run on grouped data

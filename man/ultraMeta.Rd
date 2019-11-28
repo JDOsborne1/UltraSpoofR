@@ -7,7 +7,12 @@
 ultraMeta(ultra_df, dict = NULL)
 }
 \arguments{
-\item{dict}{}
+\item{ultra_df}{the ultra df object}
+
+\item{dict}{The metadat dictionary}
+}
+\value{
+
 }
 \description{
 Populates the data structure with the metadata of the underlying origin data
