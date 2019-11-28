@@ -111,7 +111,7 @@ guessDataType <- function(vect){
 #'
 #' Generates the metadata table for future use and underlying the spoofing mechanism
 #'
-#' @param ultra_df
+#' @param ultra_df The ultra df
 #'
 #' @return
 #' @export
@@ -145,8 +145,8 @@ ultraMetaGenerator <- function(dat){
 
 #' Columnwise Metadata query
 #'
-#' @param dataset
-#' @param colname_in_question
+#' @param dataset the origin dataset
+#' @param colname_in_question The columname to use in the function
 #'
 #' @return
 #' @export
@@ -196,8 +196,8 @@ ultraMetaCalc <- function(dataset, colname_in_question){
 #'
 #' @description Function to interactively update the contents of the metadata tibble by columnname
 #'
-#' @param ultra_df
-#' @param cols_to_correct
+#' @param ultra_df The ultra df
+#' @param cols_to_correct the columns to correct in the metadict
 #'
 #' @return
 #' @export

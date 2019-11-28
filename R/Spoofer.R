@@ -1,7 +1,7 @@
 #' Random column generator
 #'
-#' @param ultra_df
-#' @param Column_in_question
+#' @param ultra_df The ultra df
+#' @param Column_in_question The column for the function
 #'
 #' @return
 #' @export
@@ -32,7 +32,7 @@ ultraRandoColumn <- function(ultra_df, Column_in_question){
 
 #' random dataset generator
 #'
-#' @param ultra_df
+#' @param ultra_df the ultra df
 #'
 #' @return
 #' @export
@@ -51,8 +51,8 @@ ultraRandoDataset <- function(ultra_df){
 
 #' Single Spoof run on grouped data
 #'
-#' @param grouped_origin
-#' @param continuous_cols
+#' @param grouped_origin the origin data that has been grouped already
+#' @param continuous_cols the continuous columns
 #'
 #' @return
 #' @export
@@ -67,7 +67,7 @@ ultraSingleSpoofRun <- function(grouped_origin, continuous_cols){
 #'
 #' @description Function which uses the new devised method to spoof without introducing illegal combinations of values.
 #'
-#' @param ultra_df
+#' @param ultra_df the ultra df
 #'
 #' @return
 #' @export
@@ -108,33 +108,41 @@ ultraSpooferNew <- function(ultra_df){
 
 #' Nominal Column Checker
 #'
-#' @param ultra_df
+#' @param ultra_df The ultra df
 #'
 #' @return
 #' @export
 #'
 #' @examples
 ultraNominalCheck <- function(ultra_df){
-  out <- ultra_df$meta[ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
+  if("data.frame" %in% class(ultra_df$meta)){
+    out <- ultra_df$meta[ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
+  } else {
+    out <- NULL
+  }
   return(out)
 }
 
 #' Continuous Column Checker
 #'
-#' @param ultra_df
+#' @param ultra_df the Ultra df
 #'
 #' @return
 #' @export
 #'
 #' @examples
 ultraContinuousCheck <- function(ultra_df){
+  if("data.frame" %in% class(ultra_df$meta)){
   out <- ultra_df$meta[!ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
+  } else {
+    out <- NULL
+}
   return(out)
 }
 
 #' Constrained Random generator
 #'
-#' @param vect
+#' @param vect the vector of values
 #'
 #' @return
 #' @export

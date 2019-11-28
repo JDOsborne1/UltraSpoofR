@@ -3,7 +3,7 @@
 #'
 #' @description Calls the stages attribute of the ultra_df to generate a multi step origin call, allowing for extra steps to be used after the source
 #'
-#' @param stages
+#' @param stages the stages of the ultra df analysis
 #'
 #' @return
 #' @export
@@ -20,8 +20,8 @@ ultraCallStagedOutput <- function(stages){
 
 #' Maximum value getter
 #'
-#' @param ultra_df
-#' @param column
+#' @param ultra_df the ultra df
+#' @param column the column to query
 #'
 #' @return
 #' @export
@@ -31,10 +31,10 @@ ultraGetMax <- function(ultra_df, column){
   return(ultra_df$meta[ultra_df$meta$Column == column, ]$Max)
 }
 
-#' Maximum value getter
+#' Minimum value getter
 #'
-#' @param ultra_df
-#' @param column
+#' @param ultra_df the ultra df
+#' @param column the column to query
 #'
 #' @return
 #' @export
