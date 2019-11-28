@@ -14,6 +14,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/JDOsborne1/UltraSpoofR.svg?branch=master)](https://travis-ci.org/JDOsborne1/UltraSpoofR)
+<!-- badges: end -->
+
+
 # UltraSpoofR
 
 The goal of UltraSpoofR is to modify the typical workflow such that the raw genuine data can be disconnected from the bulk of the workflow. It will do this by providing a new data object, which has an authenticated link to the actual data, along with a data dictionary to describe that data and a reasonable spoof of that data. 
