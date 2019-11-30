@@ -2,13 +2,15 @@
 % Please edit documentation in R/SelfMethods.R
 \name{ultraGetMin}
 \alias{ultraGetMin}
-\title{Maximum value getter}
+\title{Minimum value getter}
 \usage{
 ultraGetMin(ultra_df, column)
 }
 \arguments{
-\item{column}{}
+\item{ultra_df}{the ultra df}
+
+\item{column}{the column to query}
 }
 \description{
-Maximum value getter
+Minimum value getter
 }

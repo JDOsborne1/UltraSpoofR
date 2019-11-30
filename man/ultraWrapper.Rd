@@ -7,7 +7,9 @@
 ultraWrapper(origin_location, type)
 }
 \arguments{
-\item{type}{}
+\item{origin_location}{the path of the source file}
+
+\item{type}{The type of file found at the path}
 }
 \description{
 The main function to wrap up dataframes into the ultrawrapper format

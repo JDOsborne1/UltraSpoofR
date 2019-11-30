@@ -7,7 +7,7 @@
 ultraCSV(path)
 }
 \arguments{
-\item{path}{}
+\item{path}{The path of the csv file}
 }
 \description{
 Generates an anticipator for the .csv file at the given path

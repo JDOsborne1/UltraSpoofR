@@ -7,7 +7,7 @@
 ultraNominalCheck(ultra_df)
 }
 \arguments{
-\item{ultra_df}{}
+\item{ultra_df}{The ultra df}
 }
 \description{
 Nominal Column Checker

@@ -26,7 +26,7 @@ ultraAnticipatorDict <- function(type){
 #'
 #' Generates an anticipator for the .csv file at the given path
 #'
-#' @param path
+#' @param path The path of the csv file
 #'
 #' @return
 #' @export
@@ -34,7 +34,7 @@ ultraAnticipatorDict <- function(type){
 #' @examples
 ultraCSV <- function(path){
   anticipator <- function(){
-    return(read.csv(path))
+    return(utils::read.csv(path))
   }
   return(anticipator)
 }
@@ -43,7 +43,7 @@ ultraCSV <- function(path){
 #'
 #' Generates an anticipator for the .rds file at the given path
 #'
-#' @param path
+#' @param path The path of the RDS file
 #'
 #' @return
 #' @export
@@ -51,7 +51,7 @@ ultraCSV <- function(path){
 #' @examples
 ultraRDS <- function(path){
   anticipator <- function(){
-    return(readRDS(path))
+    return(base::readRDS(path))
   }
 }
 
@@ -59,7 +59,7 @@ ultraRDS <- function(path){
 #'
 #' Generates an anticipator for the .rds file at the given path
 #'
-#' @param path
+#' @param path The path of the Excel file
 #'
 #' @return
 #' @export

@@ -4,3 +4,5 @@
 ^README-.*\.png$
 ^R/Devfile Live\.R$
 ^LICENSE\.md$
+^\.travis\.yml$
+^codecov\.yml$

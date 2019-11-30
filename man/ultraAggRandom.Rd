@@ -7,7 +7,7 @@
 ultraAggRandom(vect)
 }
 \arguments{
-\item{vect}{}
+\item{vect}{the vector of values}
 }
 \description{
 Constrained Random generator

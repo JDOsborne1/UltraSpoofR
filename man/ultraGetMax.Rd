@@ -7,7 +7,9 @@
 ultraGetMax(ultra_df, column)
 }
 \arguments{
-\item{column}{}
+\item{ultra_df}{the ultra df}
+
+\item{column}{the column to query}
 }
 \description{
 Maximum value getter
