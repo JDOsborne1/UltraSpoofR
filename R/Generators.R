@@ -4,8 +4,8 @@
 #'
 #' The main function to wrap up dataframes into the ultrawrapper format
 #'
-#' @param origin the path of the source file
 #' @param type The type of file found at the path
+#' @param origin_location the path of the source file
 #'
 #' @return
 #' @export
@@ -23,25 +23,6 @@ ultraWrapper <- function(origin_location, type){
 
 }
 
-#' Injecting a metadata structure into the ultra_df
-#'
-#' Populates the data structure with the metadata of the underlying origin data
-#'
-#' @param ultra_df the ultra df object
-#' @param dict The metadat dictionary
-#'
-#' @return
-#' @export
-#'
-#' @examples
-ultraMeta <- function(ultra_df, dict = NULL){
-  if(is.null(dict)){
-  ultra_df[["meta"]] <- ultraMetaGenerator(ultra_df$origin())
-  } else {
-    ultra_df[["meta"]] <- dict
-  }
-  return(ultra_df)
-}
 
 
 #' Spoofer
