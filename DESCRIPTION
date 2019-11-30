@@ -4,8 +4,8 @@ Version: 1.0.0
 Authors@R: person("Joseph", "Developer", role = c("aut", "cre"),
                      email = "joe@osborne.uk.com")
 Description: Uses a cover object to make the underlying data less neccessary and less often loaded. By making it possible to build analyses on the spoofed data and the added data dictionary it will assist in privacy-by-design workflows.
-License: CCBY-4.0
 Depends: R (>= 3.6.0)
+License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.1
