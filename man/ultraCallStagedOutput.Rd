@@ -9,9 +9,6 @@ ultraCallStagedOutput(stages)
 \arguments{
 \item{stages}{the stages of the ultra df analysis}
 }
-\value{
-
-}
 \description{
 Calls the stages attribute of the ultra_df to generate a multi step origin call, allowing for extra steps to be used after the source
 }

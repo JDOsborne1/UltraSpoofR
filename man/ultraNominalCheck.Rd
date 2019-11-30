@@ -9,9 +9,6 @@ ultraNominalCheck(ultra_df)
 \arguments{
 \item{ultra_df}{The ultra df}
 }
-\value{
-
-}
 \description{
 Nominal Column Checker
 }

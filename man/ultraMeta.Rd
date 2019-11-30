@@ -11,9 +11,6 @@ ultraMeta(ultra_df, dict = NULL)
 
 \item{dict}{The metadat dictionary}
 }
-\value{
-
-}
 \description{
 Populates the data structure with the metadata of the underlying origin data
 }

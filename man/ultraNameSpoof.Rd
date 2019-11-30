@@ -6,9 +6,6 @@
 \usage{
 ultraNameSpoof()
 }
-\value{
-
-}
 \description{
 uses the embedded mtcars and state.name datasets to generate passable, if often amusing fake names in PII slots
 }

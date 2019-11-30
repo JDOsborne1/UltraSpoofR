@@ -149,7 +149,7 @@ ultraContinuousCheck <- function(ultra_df){
 #'
 #' @examples
 ultraAggRandom <- function(vect){
-  out <- runif(1, min(vect), max(vect))
+  out <- stats::runif(1, base::min(vect), base::max(vect))
   return(out)
 }
 
@@ -162,7 +162,7 @@ ultraAggRandom <- function(vect){
 #'
 #' @examples
 ultraNameSpoof <- function(){
-  first = sample(purrr::flatten(stringr::str_split(rownames(mtcars), pattern = "\\s")), 1)[[1]]
-  last = sample(state.name, 1)
+  first = sample(purrr::flatten(stringr::str_split(rownames(datasets::mtcars), pattern = "\\s")), 1)[[1]]
+  last = sample(datasets::state.name, 1)
   return(paste0(first, " ", last))
 }

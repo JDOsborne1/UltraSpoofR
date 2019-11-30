@@ -15,7 +15,10 @@ Imports:
     purrr,
     readxl,
     stringr,
-    httr
+    httr,
+    base,
+    stats,
+    utils
 Suggests: 
     testthat (>= 2.1.0),
     covr

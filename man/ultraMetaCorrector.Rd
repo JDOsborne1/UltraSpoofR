@@ -11,9 +11,6 @@ ultraMetaCorrector(ultra_df, cols_to_correct)
 
 \item{cols_to_correct}{the columns to correct in the metadict}
 }
-\value{
-
-}
 \description{
 Function to interactively update the contents of the metadata tibble by columnname
 }

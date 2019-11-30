@@ -9,9 +9,6 @@ ultraAggRandom(vect)
 \arguments{
 \item{vect}{the vector of values}
 }
-\value{
-
-}
 \description{
 Constrained Random generator
 }

@@ -9,9 +9,6 @@ ultraSpooferNew(ultra_df)
 \arguments{
 \item{ultra_df}{the ultra df}
 }
-\value{
-
-}
 \description{
 Function which uses the new devised method to spoof without introducing illegal combinations of values.
 }

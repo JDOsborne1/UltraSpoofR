@@ -11,9 +11,6 @@ ultraGetMax(ultra_df, column)
 
 \item{column}{the column to query}
 }
-\value{
-
-}
 \description{
 Maximum value getter
 }

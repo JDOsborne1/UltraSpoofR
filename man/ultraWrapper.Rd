@@ -11,9 +11,6 @@ ultraWrapper(origin_location, type)
 
 \item{origin}{the path of the source file}
 }
-\value{
-
-}
 \description{
 The main function to wrap up dataframes into the ultrawrapper format
 }

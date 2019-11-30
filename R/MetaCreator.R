@@ -120,7 +120,7 @@ guessDataType <- function(vect){
 ultraMetaGenerator <- function(dat){
 
   calc_values <- c("Min", "Max", "Levels")
-  out_dict <- head(
+  out_dict <- utils::head(
     tibble::tibble(
       "Column" = NA
       , "Description" = NA

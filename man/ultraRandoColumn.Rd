@@ -11,9 +11,6 @@ ultraRandoColumn(ultra_df, Column_in_question)
 
 \item{Column_in_question}{The column for the function}
 }
-\value{
-
-}
 \description{
 Random column generator
 }

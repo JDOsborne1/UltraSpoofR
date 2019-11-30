@@ -34,7 +34,7 @@ ultraAnticipatorDict <- function(type){
 #' @examples
 ultraCSV <- function(path){
   anticipator <- function(){
-    return(read.csv(path))
+    return(utils::read.csv(path))
   }
   return(anticipator)
 }
@@ -51,7 +51,7 @@ ultraCSV <- function(path){
 #' @examples
 ultraRDS <- function(path){
   anticipator <- function(){
-    return(readRDS(path))
+    return(base::readRDS(path))
   }
 }
 

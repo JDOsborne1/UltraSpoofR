@@ -11,9 +11,6 @@ ultraSingleSpoofRun(grouped_origin, continuous_cols)
 
 \item{continuous_cols}{the continuous columns}
 }
-\value{
-
-}
 \description{
 Single Spoof run on grouped data
 }

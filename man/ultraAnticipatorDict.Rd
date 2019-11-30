@@ -9,9 +9,6 @@ ultraAnticipatorDict(type)
 \arguments{
 \item{type}{A data type supported by the dict. one of c("CSV", "RDS)}
 }
-\value{
-
-}
 \description{
 Returns the anticipator generator function based on the data type given
 }

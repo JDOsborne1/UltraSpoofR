@@ -11,9 +11,6 @@ ultraGetMin(ultra_df, column)
 
 \item{column}{the column to query}
 }
-\value{
-
-}
 \description{
 Minimum value getter
 }
