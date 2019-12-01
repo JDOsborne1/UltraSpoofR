@@ -1,4 +1,12 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.org/JDOsborne1/UltraSpoofR.svg?branch=master)](https://travis-ci.org/JDOsborne1/UltraSpoofR)
+[![Codecov test
+coverage](https://codecov.io/gh/JDOsborne1/UltraSpoofR/branch/master/graph/badge.svg)](https://codecov.io/gh/JDOsborne1/UltraSpoofR?branch=master)
+<!-- badges: end -->
+
 UltraSpoofR
 ===========
 
@@ -8,31 +16,11 @@ will do this by providing a new data object, which has an authenticated
 link to the actual data, along with a data dictionary to describe that
 data and a reasonable spoof of that data.
 
-Example
--------
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-## basic example code
-```
-
 TODOs
 -----
 
 Add in regex case insensitivity to type argument of the anticiapator
 dict –TODO
-
-~~Add in Metadata dictionary interaction and functionality: likely
-involving big update to megametadata~~ –TODO
-
-~~introduce data spoofing elements to mimic data types with random
-data~~ –TODO
-
-\~\~constrain the spoof generation to the features of the underlying
-data, min max, type combos etc \~\~–TODO
-
-Add further tests to the output of the spoofing functionality –TODO
 
 New Spoofing system
 -------------------
@@ -88,3 +76,39 @@ comfortable/allowed to embed sensitive data in your functions.
 An author may leave, and all the background work put into figuring out
 the underlying methodology behind a variable may become lost. And even
 if documented, it may go missing.
+
+Workflow
+--------
+
+1.  Understand your data sources and objective
+2.  Explore your data sources, creating anticipator origin functions
+    around the datasets that you want to work with.
+3.  Document those datasets with Ultra’s metadata structure, and any
+    other relevant specific comments as attributes.
+4.  Once finished understanding and exploring your objectives and data
+    you can spoof the data. This will provide you a representative
+    imitation of 100 rows of your data, but which don’t actually
+    correspond to any real entries.
+5.  When approaching a task it is worthwhile setting out your goals, in
+    the form of text before the section, and ideally, test functions to
+    ensure the desired behavior is happening.
+6.  Using the spoofed datasets, build your analytical step.
+7.  Construct your analysis, repeating 5 & 6 as necessary.
+8.  As you find your analytical steps repeating, you can transform them
+    into functions, which may already have tests available.
+9.  By storing the ultra\_df object with your analysis, you embed the
+    metadata and workable example data with your analysis, aiding future
+    investigation. By only including a properly constructed anticipator
+    as the origin function, all access to the actual data can be as
+    restrictive and transient as necessary.
+
+### Special caveat for testing
+
+If you have packaged up analysis, and you have formal tests for your
+functions, it is rarely acceptable to include sensitive data in the
+package for testing, or if you do you often restrict the avenues where
+you can share your projects. Resorting to openly available data to test
+your packages runs the risk of the functions failing on the exact
+structure of your possibly confidential data. Since the spoofer data has
+fundamentally the same structure as the origin data, then it can be
+included without issue.
