@@ -24,10 +24,12 @@ ultraSingleSpoofRun <- function(grouped_origin, continuous_cols){
 #' @export
 #'
 #' @examples
-ultraSpooferNew <- function(ultra_df){
+ultraSpooferNew <- function(ultra_df, extract_level = "DefaultLevel"){
   # Identifies Nominal Columns
-  nominal_cols <- ultraNominalCheck(ultra_df)
-  continuous_cols <- ultraContinuousCheck(ultra_df)
+  nominal_split <- megametadata::metaSplitNominal(ultra_df$meta, extract_level = extract_level)
+
+  nominal_cols <- nominal_split$nominal
+  continuous_cols <- nominal_split$continuous
   # Groups on Nominal columns
   grouped_origin <- dplyr::group_by_at(ultra_df$origin(), dplyr::vars(dplyr::one_of(nominal_cols)))
 
@@ -57,39 +59,6 @@ ultraSpooferNew <- function(ultra_df){
   return(final_spoofed_data)
 }
 
-#' Nominal Column Checker
-#'
-#' @param ultra_df The ultra df
-#'
-#' @return
-#' @export
-#'
-#' @examples
-ultraNominalCheck <- function(ultra_df){
-  if("data.frame" %in% class(ultra_df$meta)){
-    out <- ultra_df$meta[ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
-  } else {
-    out <- NULL
-  }
-  return(out)
-}
-
-#' Continuous Column Checker
-#'
-#' @param ultra_df the Ultra df
-#'
-#' @return
-#' @export
-#'
-#' @examples
-ultraContinuousCheck <- function(ultra_df){
-  if("data.frame" %in% class(ultra_df$meta)){
-  out <- ultra_df$meta[!ultra_df$meta$Type %in% c("Category", "Tag"), ]$Column
-  } else {
-    out <- NULL
-}
-  return(out)
-}
 
 #' Constrained Random generator
 #'

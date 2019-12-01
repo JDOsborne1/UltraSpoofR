@@ -36,7 +36,6 @@ ultraWrapper <- function(origin_location, type){
 #'
 #' @examples
 ultraSpoof <- function(ultra_df){
-  # ultra_df[["spoof"]] <- ultraRandoDataset(ultra_df)
   ultra_df[["spoof"]] <- ultraSpooferNew(ultra_df)
   return(ultra_df)
 }

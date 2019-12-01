@@ -4,7 +4,7 @@
 \alias{ultraSpooferNew}
 \title{New spoofing functio}
 \usage{
-ultraSpooferNew(ultra_df)
+ultraSpooferNew(ultra_df, extract_level = "DefaultLevel")
 }
 \arguments{
 \item{ultra_df}{the ultra df}

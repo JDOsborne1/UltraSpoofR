@@ -18,9 +18,12 @@ Imports:
     httr,
     base,
     stats,
-    utils
+    utils,
+    megametadata (>= 0.3.0)
 Suggests: 
     testthat (>= 2.1.0),
     covr
+Remotes: 
+    JDOsborne1/megametadata
 URL: https://github.com/JDOsborne1/UltraSpoofR
 BugReports: https://github.com/JDOsborne1/UltraSpoofR/issues
